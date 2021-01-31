@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html><head><title> Treinamento Selenium </title><meta http-equiv="Content-type" content="text/html;charset=UTF-8"><link rel="shortcut icon" href="favicons/imagens-favicon.ico"><link rel="stylesheet" href="css/css-screen.css" type="text/css" media="screen, projection"><link rel="stylesheet" href="css/css-bootstrap.min.css" type="text/css"><style media="screen" type="text/css">
+			.button-primary {
+			    background: none repeat scroll 0 0 #0C7AB9;
+			    border-radius: 2px;
+			    color: #FFFFFF;
+			    display: inline-block;
+			    font-size: 14px;
+			    font-weight: bold;
+			    margin: 0 3px 3px 0;
+			    padding: 5px 10px;
+			    text-decoration: none;
+			}
+
+			.bb-alert {
+				position:fixed;
+				bottom:25%;
+				right:0;
+				margin-bottom:0;
+				font-size:1.2em;
+				padding:1em 1.3em;
+				z-index:2000;
+			}
+		</style></head><body class="">
+		<div class="container">
+			<h1 class="center">Alertas, Confirmações e Prompts</h1>
+				<p class="prepend-top append-0">Este exercício servirá de base para aprendermos a interagir com alertas, confirmações e prompts em javascript</p>
+
+			<hr><h5>Exercício</h5>
+			<ol><li>Clique nos botões abaixo para interagir com cada tipo de retorno visual.</li>
+			</ol><a href="#" class="button-primary" id="alerta" data-bb="alert_callback">Alerta</a>
+			<a href="#" class="button-primary" id="confirmacao" data-bb="confirm">Confirmação</a>
+			<a href="#" class="button-primary" id="prompt" data-bb="prompt">Prompt</a><br><br><div class="bb-alert alert alert-info" style="display:none;">
+				<span>The examples populate this alert with dummy content</span>
+			</div>
+
+			<br><br><p><a href="index.html">Voltar para a lista de exercícios</a></p>
+
+		</div>
+
+		<div id="msg" class="bb-alert alert alert-info" style="display: none;">
+			<span>Conteudo</span>
+		</div>	
+	
+
+	<script src="js/js-jquery.js"></script><script src="js/js-bootstrap.min.js"></script><script src="js/js-bootbox.min.js"></script><script>
+			$(document).on("click", "#alerta", function(e) {
+				
+				bootbox.alert("Este &eacute; um alerta", function() {
+					console.log("O alerta foi exibido");
+				});
+			});
+
+			$(document).on("click", "#confirmacao", function(e) {
+				bootbox.confirm("Tem certeza?", function(result) {
+					if (result === true) {
+						$("span").html("Aceitou");
+						$("#msg").show().delay(200).fadeIn().delay(4000).fadeOut();
+					} else {
+						$("span").html("Cancelou");
+						$("#msg").show().delay(200).fadeIn().delay(4000).fadeOut();
+					}
+					console.log(result);
+				});
+			});
+
+			$(document).on("click", "#prompt", function(e) {
+				bootbox.prompt("Qual seu nome?", function(result) {
+					if (result === null) {
+						$("span").html("Prompt fechado");
+						$("#msg").show().delay(200).fadeIn().delay(4000).fadeOut();
+					} else {
+						$("span").html("Ol&aacute;: " + result);
+						$("#msg").show().delay(200).fadeIn().delay(4000).fadeOut();
+					}
+				});
+			});
+
+		</script></body></html>

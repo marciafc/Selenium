@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html><head><title> Treinamento Selenium </title><meta http-equiv="Content-type" content="text/html;charset=UTF-8"><link rel="shortcut icon" href="favicons/imagens-favicon.ico"><link rel="stylesheet" href="css/css-screen.css" type="text/css" media="screen, projection"></head><body>
+    <div class="container">
+        <h1 class="center">Ajax Show</h1>
+        <hr><div>
+            <p>Informe os dados para o passeio da escola</p>
+            <form method="POST">
+                <p>Nome:
+                    <input type="text" name="nome_aluno"></p>
+                <p>E-mail:
+                    <input type="text" name="email_aluno"></p>
+                <p>Idade:
+                    <select id="idade" name="idade_aluno"><option value="14">Maior que 13 anos</option><option value="13">Menor que 13 anos</option></select></p>
+                <div id="permissao" style="display: block;">
+                    <div id="nome" style="display: block;">
+                      <p>Nome dos pais:
+                          <input type="text" name="nome_pais"></p>
+                    </div>
+                    <div id="email" style="display: block;">
+                      <p>E-mail dos pais:
+                          <input type="text" name="email_pais"></p>
+                    </div>
+                    <div id="atencao" style="display: none;">
+                      <p class="atencao">Você precisa da permissão dos seus pais!</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr><p><a href="index.html">Voltar para a lista de exercícios</a></p>
+    </div>
+	<script type="text/javascript" src="js/js-jquery-2.1.0.min.js"></script><script type="text/javascript" src="js/js-show_hide.js"></script></body></html>
