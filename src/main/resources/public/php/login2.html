@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Treinamento Selenium </title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+	<link rel="shortcut icon" href="../favicons/imagens-favicon.ico">
+	<link rel="stylesheet" href="../css/css-screen.css" type="text/css" media="screen, projection">
+	<script type="text/javascript">
+		function verificaCampos() {
+			if (document.getElementById('user').value == "" || document.getElementById('password').value == "" ) {
+				alert('Preencha os dois campos!!!');
+			}
+		}
+	</script>
+	<style>
+		fieldset{width:50px; margin-left:auto; margin-right:auto;}
+	</style>
+
+</head>
+<body>
+	<div class="container">
+		<h1 class="center">Alertas e Confirmações</h1>
+		<p>Este exercício servirá para interagirmos com alertas e confirmações de javascript</p>
+		Para este exemplo utilize o <a href="../docs/Alertas e Confirmações.docx">BDD</a>  para criar o teste.
+		<hr>
+		<!-- <form class="center" action="php/login2.php" method="post"> -->
+		<form class="center" action="../php/login2.html" method="post">
+			<fieldset>
+				<legend>Login</legend>
+					<table>
+						<tr>
+							<td>
+								<label>Usuário</label>
+								<br>
+								<input id="user" type="text" name="user">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label>Senha</label>
+								<br>
+								<input id="password" type="password" name="pass">
+							</td>
+						</tr>
+					</table>
+					<p><input type="submit" id="submit" value="Efetuar Login" onclick="verificaCampos()"></p>
+				</legend>
+			</fieldset>
+		</form>
+		<br>
+		<hr>
+		
+		<p><a href="../index.html">Voltar para a lista de exercícios</a></p>
+	</div>
+</body>
+</html>

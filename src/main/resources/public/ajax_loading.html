@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://bootcamp-selenium.matera.com/html/ajax_loading.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title> Treinamento Selenium </title>
+	
+	<link rel="shortcut icon" href="http://bootcamp-selenium.matera.com/imagens/favicon.ico">
+	<link rel="stylesheet" href="css/css-screen.css" type="text/css" media="screen, projection">
+	<script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+		$("#login").click(function() {
+
+		var action = $("#form1").attr('action');
+		var form_data = {
+			username: $("#username").val(),
+			password: $("#password").val(),
+			is_ajax: 1
+		};
+	
+		$.blockUI({message: '<h2>Aguarde...</h2>'});
+		setTimeout(function() {
+			$.ajax({
+				type: "POST",
+				url: action,
+				data: form_data,
+				success: function(response) {
+					if(response == 'success')
+						$("#form1").slideUp('slow', function() {
+						$("#message").html("<p class='success' >Voce efetuou o login com sucesso!</p> <a href='ajax_loading.html'>Fazer login novamente</a>");
+					});
+					else
+						$("#message").html("<p class='error'>Usuario ou senhas invalidos.</p>");	
+					}
+					});
+					$.unblockUI();
+				},1000);
+			return false;
+		});
+
+		});
+	</script>
+	<style>
+		fieldset{width:50px; margin-left:auto; margin-right:auto;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1 class="center">Ajax Loading</h1>
+			<p>Neste exemplo iremos aprender a esperar por elementos onde a pagina contenha alguma função de espera. <br>
+			Para este exemplo utilize o <a href="docs/Esperando%20Elementos.docx">BDD</a>  para criar o teste.
+
+		</p><hr>
+			<div class="loading center">
+					<!-- <form id="form1" name="form1" action="php/login.html" method="post"> -->
+  					<form id="form1" name="form1" action="php/login.html" method="post">
+  						<fieldset>
+							<legend>Login</legend>
+								<table>
+									<tbody><tr>
+										<td>
+											<label>Usuário</label>
+											<br>
+											<input id="username" type="text" name="username">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label>Senha</label>
+											<br>
+											<input id="password" type="password" name="password">
+										</td>
+									</tr>
+								</tbody></table>
+								<p><input type="submit" id="login" value="Efetuar Login" name="login"></p>
+							
+						</fieldset>      						
+  					</form>
+    			<div id="message"></div>
+			</div>
+		<hr>
+		<p><a href="index.html">Voltar para a lista de exercícios</a></p>
+	</div>
+
+</body></html>

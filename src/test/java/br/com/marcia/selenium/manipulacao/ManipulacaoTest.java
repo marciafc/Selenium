@@ -1,5 +1,6 @@
 package br.com.marcia.selenium.manipulacao;
 
+import br.com.marcia.selenium.util.PathUtils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,11 +15,13 @@ public class ManipulacaoTest {
     @Test
     public void testeManipulacao() {
 
-        System.setProperty("webdriver.chrome.driver", "/home/marcia-castagna/chromedriver/chromedriver");
+        System.setProperty("webdriver.chrome.driver", PathUtils.CHROME_DRIVER);
 
         WebDriver driver = new ChromeDriver();
 
         driver.get("http://bootcamp-selenium.matera.com/html/elementos_html.html");
+        // Para páginas locais (ajustar php):
+        //driver.get(PathUtils.URL + "elementos_html.html");
 
         driver.findElement(By.id("name1")).sendKeys("João");
         driver.findElement(By.id("name2")).sendKeys("dos Santos");
@@ -48,7 +51,7 @@ public class ManipulacaoTest {
         assertEquals("Sua parte favorita do dia é: Manha Noite", driver.findElement(By.id("parte_favorita")).getText());
         assertEquals("Seu grau de instrução é: Graduado", driver.findElement(By.id("instrucao")).getText());
 
-        driver.quit();
+       driver.quit();
     }
 
 }

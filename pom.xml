@@ -28,6 +28,7 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Utilizado para screenshot -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>

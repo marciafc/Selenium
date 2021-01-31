@@ -1,5 +1,6 @@
 package br.com.marcia.selenium.sincronizacao;
 
+import br.com.marcia.selenium.util.PathUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,12 +23,14 @@ public class EsperaExplicitaTest {
     @Before
     public void before() {
 
-        System.setProperty("webdriver.chrome.driver", "/home/marcia-castagna/chromedriver/chromedriver");
+        System.setProperty("webdriver.chrome.driver", PathUtils.CHROME_DRIVER);
 
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         driver.get("http://bootcamp-selenium.matera.com/html/ajax_loading.html");
+        // Para rodar local (ajustar php)
+        //driver.get(PathUtils.URL + "ajax_loading.html");
     }
 
     @After
